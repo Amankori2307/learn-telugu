@@ -85,7 +85,13 @@ export function App() {
               onClick={() => onOptionClick(option)}
             >{option.meaningInEnglish}</li>)}
           </ul>
+
+          {
+            selectedAnswer && <h1 className={styles.exampleSentence}>{selectedAnswer?.exampleSentence}</h1>
+          }
         </div>
+
+
       </div>
     </div>
   );
