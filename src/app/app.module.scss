@@ -59,6 +59,16 @@ html {
       .exampleSentence {
         margin-top: 5rem;
       }
+
+      .nextWorkButton {
+        margin-top: 5rem;
+        padding: 1rem;
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
     }
   }
 }

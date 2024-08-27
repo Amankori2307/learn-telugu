@@ -89,6 +89,8 @@ export function App() {
           {
             selectedAnswer && <h1 className={styles.exampleSentence}>{selectedAnswer?.exampleSentence}</h1>
           }
+
+          <button className={styles.nextWorkButton}>Next Word</button>
         </div>
 
 
