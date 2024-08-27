@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './app.module.scss';
 import data from '../data/data';
 import { IData } from 'src/interfaces/data.interfaces';
@@ -32,7 +31,7 @@ export function App() {
     return array;
   }
 
-  useEffect(() => {
+  const getRandomWork = useCallback(() => {
     const randomIndexes = getRandomIndexes();
     const wordList = [
       data[randomIndexes[0]],
@@ -43,7 +42,12 @@ export function App() {
 
     setSelectedWord(wordList[0])
     setOptions(shuffleArray(wordList));
+    setSelectedAnswer(null);
   }, [])
+
+  useEffect(() => {
+    getRandomWork();
+  }, [getRandomWork])
 
   const onOptionClick = (option: IData) => {
     setSelectedAnswer(option)
@@ -57,8 +61,6 @@ export function App() {
     return selectedAnswer?.meaningInEnglish === option.meaningInEnglish;
   }
 
-
-
   const getClassName = (option: IData) => {
     if (!selectedAnswer) return ''
     if (isSelectedOption(option)) {
@@ -66,6 +68,7 @@ export function App() {
       else return styles.wrongSelectedAnswer;
     } else if (isCorrectOption(option)) return styles.correctAnswer
   }
+
   if (!selectedWord) return <h1>Loading...</h1>
   return (
     <div className={styles.mainWrapper}>
@@ -87,10 +90,12 @@ export function App() {
           </ul>
 
           {
-            selectedAnswer && <h1 className={styles.exampleSentence}>{selectedAnswer?.exampleSentence}</h1>
+            selectedAnswer && <div>
+              <h1 className={styles.exampleSentence}>{selectedAnswer?.exampleSentence}</h1>
+              <button className={styles.nextWorkButton} onClick={getRandomWork}>Next Word</button>
+            </div>
           }
 
-          <button className={styles.nextWorkButton}>Next Word</button>
         </div>
 
 
