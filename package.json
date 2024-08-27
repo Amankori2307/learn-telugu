@@ -1,5 +1,5 @@
 {
-  "homepage": "https://amankori2307.github.io/learn-telugu",
+  "homepage": "https://amankori2307.github.io/learn-telugu/",
   "name": "@learn-telugu/source",
   "version": "0.0.0",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "build": "nx build",
     "test": "nx test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist/learn-telugu"
   },
   "private": true,
   "dependencies": {
