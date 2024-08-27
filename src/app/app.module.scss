@@ -1,1 +1,47 @@
-/* Your styles goes here. */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainWrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .containerWrapper {
+    border: 1px solid black;
+    padding: 4rem;
+    border-radius: 2rem;
+
+    .container {
+      .wordWrapper {
+        font-size: 3rem;
+        .word {
+        }
+      }
+
+      .optionList {
+        margin-top: 5rem;
+        font-size: 1.5rem;
+        list-style-type: none;
+
+        .option {
+          border: 1px solid black;
+          border-radius: 0.5rem;
+          padding: 1rem;
+          margin-top: 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
