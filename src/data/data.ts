@@ -3249,3 +3249,5 @@ const data: Array<IData> = [
     exampleSentence: 'Daivasiddhi undi (There is divine intervention).',
   },
 ];
+
+export default data;
