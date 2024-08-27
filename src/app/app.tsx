@@ -8,6 +8,7 @@ import { IData } from 'src/interfaces/data.interfaces';
 export function App() {
   const [selectedWord, setSelectedWord] = useState<IData | null>(null)
   const [options, setOptions] = useState<Array<IData>>([])
+  const [selectedAnswer, setSelectedAnswer] = useState<IData | null>(null);
   const getRandomIndexes = (count = 4) => {
     const indexes: Array<number> = [];
     let i = 0;
@@ -23,12 +24,9 @@ export function App() {
     return indexes;
   }
 
-  function shuffleArray(array) {
+  function shuffleArray(array: Array<any>) {
     for (let i = array.length - 1; i > 0; i--) {
-      // Generate a random index
       const j = Math.floor(Math.random() * (i + 1));
-
-      // Swap elements at index i and j
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
@@ -47,7 +45,27 @@ export function App() {
     setOptions(shuffleArray(wordList));
   }, [])
 
+  const onOptionClick = (option: IData) => {
+    setSelectedAnswer(option)
+  }
 
+  const isCorrectOption = (option: IData) => {
+    return selectedWord?.meaningInEnglish === option.meaningInEnglish;
+  }
+
+  const isSelectedOption = (option: IData) => {
+    return selectedAnswer?.meaningInEnglish === option.meaningInEnglish;
+  }
+
+
+
+  const getClassName = (option: IData) => {
+    if (!selectedAnswer) return ''
+    if (isSelectedOption(option)) {
+      if (isCorrectOption(option)) return styles.correctSelectedAnswer;
+      else return styles.wrongSelectedAnswer;
+    } else if (isCorrectOption(option)) return styles.correctAnswer
+  }
   if (!selectedWord) return <h1>Loading...</h1>
   return (
     <div className={styles.mainWrapper}>
@@ -61,7 +79,11 @@ export function App() {
           </p>
 
           <ul className={styles.optionList}>
-            {options.map((option) => <li className={styles.option} key={option.word}>{option.meaningInEnglish}</li>)}
+            {options.map((option) => <li
+              className={`${styles.option} ${getClassName(option)}`}
+              key={option.word}
+              onClick={() => onOptionClick(option)}
+            >{option.meaningInEnglish}</li>)}
           </ul>
         </div>
       </div>

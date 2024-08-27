@@ -36,11 +36,23 @@ html {
         list-style-type: none;
 
         .option {
-          border: 1px solid black;
+          border: 2px solid lightgray;
           border-radius: 0.5rem;
           padding: 1rem;
           margin-top: 1rem;
           cursor: pointer;
+
+          &.correctSelectedAnswer {
+            border-color: green;
+            background-color: lightgreen;
+          }
+          &.wrongSelectedAnswer {
+            border-color: red;
+            background-color: lightcoral;
+          }
+          &.correctAnswer {
+            border-color: green;
+          }
         }
       }
     }
