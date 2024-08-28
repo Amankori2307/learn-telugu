@@ -54,11 +54,11 @@ export function App() {
   }
 
   const isCorrectOption = (option: IData) => {
-    return selectedWord?.meaningInEnglish === option.meaningInEnglish;
+    return selectedWord?.meaning === option.meaning;
   }
 
   const isSelectedOption = (option: IData) => {
-    return selectedAnswer?.meaningInEnglish === option.meaningInEnglish;
+    return selectedAnswer?.meaning === option.meaning;
   }
 
   const getClassName = (option: IData) => {
@@ -76,22 +76,25 @@ export function App() {
         <div className={styles.container}>
           <p className={styles.wordWrapper}>
             <b>
-              <span className={styles.word}>{selectedWord.word}</span>
-              <span className={styles.pronunciation}><i>({selectedWord.pronunciation})</i></span>
+              <span className={styles.word}>{selectedWord.text}</span>
+              {selectedWord.pronunciation && <span className={styles.pronunciation}><i>({selectedWord.pronunciation})</i></span>}
             </b>
           </p>
 
           <ul className={styles.optionList}>
             {options.map((option) => <li
               className={`${styles.option} ${getClassName(option)}`}
-              key={option.word}
+              key={option.text}
               onClick={() => onOptionClick(option)}
-            >{option.meaningInEnglish}</li>)}
+            >{option.meaning}</li>)}
           </ul>
 
           {
             selectedAnswer && <div>
-              <h1 className={styles.exampleSentence}>{selectedAnswer?.exampleSentence}</h1>
+
+              <ul>
+                {selectedWord.examples?.map((example, index) => <li className={styles.exampleSentence} key={index}>{example}</li>)}
+              </ul>
               <button className={styles.nextWorkButton} onClick={getRandomWork}>Next Word</button>
             </div>
           }

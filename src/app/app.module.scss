@@ -51,7 +51,8 @@ html {
             background-color: lightcoral;
           }
           &.correctAnswer {
-            border-color: green;
+            // border-color: green;
+            background-color: lightgreen;
           }
         }
       }
