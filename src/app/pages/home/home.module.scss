@@ -1,0 +1,24 @@
+.mainWrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .containerWrapper {
+    border: 1px solid black;
+    padding: 4rem;
+    border-radius: 2rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainWrapper {
+    padding: 2rem;
+    .containerWrapper {
+      padding: 3rem 2.5rem;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.container {
+  min-width: 40rem;
+  .wordWrapper {
+    font-size: 3rem;
+  }
+
+  .exampleSentence {
+    margin-top: 5rem;
+  }
+
+  .nextWorkButton {
+    margin-top: 5rem;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    min-width: unset;
+  }
+}
