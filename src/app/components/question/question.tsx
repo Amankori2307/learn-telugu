@@ -10,7 +10,7 @@ export function Question() {
   const [selectedWord, setSelectedWord] = useState<IData | null>(null)
   const [options, setOptions] = useState<Array<IData>>([])
   const [selectedAnswer, setSelectedAnswer] = useState<IData | null>(null);
-
+  const [showInverse, setShowReverse] = useState(false);
 
   const getRandomWord = useCallback(() => {
     const randomIndexes = questionsUtils.getRandomIndexes(data.length);
@@ -20,7 +20,7 @@ export function Question() {
       data[randomIndexes[2]],
       data[randomIndexes[3]],
     ]
-
+    setShowReverse(Boolean(Math.random()))
     setSelectedWord(wordList[0])
     setOptions(questionsUtils.shuffleArray(wordList));
     setSelectedAnswer(null);
@@ -34,25 +34,19 @@ export function Question() {
   if (!selectedWord) return <h1>Loading...</h1>
   return (
     <div className={styles.container}>
-      <p className={styles.wordWrapper}>
-        <b>
-          <span className={styles.word}>{selectedWord.text}</span>
-        </b>
-        <br />
-        {selectedWord.pronunciation && <span className={styles.pronunciation}><i>({selectedWord.pronunciation})</i></span>}
-      </p>
 
+      <WordWrapper selectedWord={selectedWord} showInverse={showInverse} />
       <OptionList
         options={options}
         selectedAnswer={selectedAnswer}
         setSelectedAnswer={setSelectedAnswer}
         selectedWord={selectedWord}
+        showInverse={showInverse}
 
       />
 
       {
         selectedAnswer && <div>
-
           <ul>
             {selectedWord.examples?.map((example, index) => <li className={styles.exampleSentence} key={index}>{example}</li>)}
           </ul>
@@ -65,3 +59,24 @@ export function Question() {
 }
 
 export default Question;
+
+
+interface IWordWrapperProps {
+  selectedWord: IData,
+  showInverse: boolean;
+}
+const WordWrapper = (props: IWordWrapperProps) => {
+  const { selectedWord, showInverse } = props;
+  const text1 = showInverse ? selectedWord.meaning : selectedWord.text;
+  const text2 = showInverse ? '' : selectedWord.meaning;
+
+
+  if (showInverse)
+    return (<p className={styles.wordWrapper}>
+      <b>
+        <span className={styles.word}>{text1}</span>
+      </b>
+      <br />
+      {text2 && <span className={styles.pronunciation}><i>({text2})</i></span>}
+    </p>)
+}

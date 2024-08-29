@@ -7,10 +7,11 @@ export interface IOptionListProps {
   selectedAnswer: IData | null;
   setSelectedAnswer: (value: IData) => void;
   selectedWord: IData;
+  showInverse: boolean;
 }
 
 export function OptionList(props: IOptionListProps) {
-  const { options, selectedAnswer, setSelectedAnswer, selectedWord } = props;
+  const { options, selectedAnswer, setSelectedAnswer, selectedWord,showInverse } = props;
 
   return (
     <ul className={styles.optionList}>
@@ -20,6 +21,7 @@ export function OptionList(props: IOptionListProps) {
         selectedAnswer={selectedAnswer}
         selectedWord={selectedWord}
         setSelectedAnswer={setSelectedAnswer}
+        showInverse={showInverse}
 
       />)}
     </ul>

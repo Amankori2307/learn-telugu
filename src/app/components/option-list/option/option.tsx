@@ -7,9 +7,11 @@ export interface IOptionProps {
   selectedAnswer: IData | null;
   setSelectedAnswer: (value: IData) => void;
   selectedWord: IData;
+  showInverse: boolean;
 }
 export function Option(props: IOptionProps) {
-  const { option, selectedAnswer, setSelectedAnswer, selectedWord } = props;
+  const { option, selectedAnswer, setSelectedAnswer, selectedWord, showInverse } = props;
+  const textToShow = showInverse ? option.text : option.meaning;
 
   const onOptionClick = (option: IData) => {
     setSelectedAnswer(option)
@@ -36,7 +38,7 @@ export function Option(props: IOptionProps) {
       className={`${styles.option} ${getClassName(option)}`}
       key={option.text}
       onClick={() => onOptionClick(option)}
-    >{option.meaning}</li>
+    >{textToShow}</li>
   );
 }
 
