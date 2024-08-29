@@ -12,6 +12,7 @@ export interface IOptionProps {
 export function Option(props: IOptionProps) {
   const { option, selectedAnswer, setSelectedAnswer, selectedWord, showInverse } = props;
   const textToShow = showInverse ? option.text : option.meaning;
+  const subTextToShow = showInverse ? option.pronunciation : '';
 
   const onOptionClick = (option: IData) => {
     setSelectedAnswer(option)
@@ -38,7 +39,11 @@ export function Option(props: IOptionProps) {
       className={`${styles.option} ${getClassName(option)}`}
       key={option.text}
       onClick={() => onOptionClick(option)}
-    >{textToShow}</li>
+    >
+      <span>{textToShow}</span><br />
+      <span className={styles.pronunciation}>{subTextToShow}</span>
+
+    </li>
   );
 }
 
