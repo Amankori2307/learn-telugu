@@ -1,9 +1,9 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import data from '../../../data/data';
 import { IData } from '../../../interfaces/data.interfaces';
 import questionsUtils from '../../../utils/question.utils';
-import styles from './question.module.scss';
 import OptionList from '../option-list/option-list';
+import styles from './question.module.scss';
 
 export function Question() {
 
@@ -37,8 +37,9 @@ export function Question() {
       <p className={styles.wordWrapper}>
         <b>
           <span className={styles.word}>{selectedWord.text}</span>
-          {selectedWord.pronunciation && <span className={styles.pronunciation}><i>({selectedWord.pronunciation})</i></span>}
         </b>
+        <br />
+        {selectedWord.pronunciation && <span className={styles.pronunciation}><i>({selectedWord.pronunciation})</i></span>}
       </p>
 
       <OptionList
