@@ -70,7 +70,7 @@ interface IWordWrapperProps {
 const WordWrapper = (props: IWordWrapperProps) => {
   const { selectedWord, showInverse } = props;
   const text1 = showInverse ? selectedWord.meaning : selectedWord.text;
-  const text2 = showInverse ? '' : selectedWord.meaning;
+  const text2 = showInverse ? '' : selectedWord.pronunciation;
 
 
   return (<p className={styles.wordWrapper}>
