@@ -20,6 +20,10 @@ const questionsUtils = {
     }
     return array;
   },
+
+  getRandomBoolean: () => {
+    return Boolean(Math.round(Math.random()));
+  },
 };
 
 export default questionsUtils;

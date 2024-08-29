@@ -20,7 +20,7 @@ export function Question() {
       data[randomIndexes[2]],
       data[randomIndexes[3]],
     ]
-    setShowReverse(Boolean(Math.round(Math.random())))
+    setShowReverse(questionsUtils.getRandomBoolean())
     setSelectedWord(wordList[0])
     setOptions(questionsUtils.shuffleArray(wordList));
     setSelectedAnswer(null);
@@ -73,12 +73,11 @@ const WordWrapper = (props: IWordWrapperProps) => {
   const text2 = showInverse ? '' : selectedWord.meaning;
 
 
-  if (showInverse)
-    return (<p className={styles.wordWrapper}>
-      <b>
-        <span className={styles.word}>{text1}</span>
-      </b>
-      <br />
-      {text2 && <span className={styles.pronunciation}><i>({text2})</i></span>}
-    </p>)
+  return (<p className={styles.wordWrapper}>
+    <b>
+      <span className={styles.word}>{text1}</span>
+    </b>
+    <br />
+    {text2 && <span className={styles.pronunciation}><i>({text2})</i></span>}
+  </p>)
 }
