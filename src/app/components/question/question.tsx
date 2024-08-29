@@ -46,8 +46,10 @@ export function Question() {
       />
 
       {
-        selectedAnswer && <div>
-          <ul>
+        // selectedAnswer &&
+        <div >
+          <h2 className={styles.examplesHeading}>Examples:</h2>
+          <ul className={styles.examples}>
             {selectedWord.examples?.map((example, index) => <li className={styles.exampleSentence} key={index}>{example}</li>)}
           </ul>
           <button className={styles.nextWorkButton} onClick={getRandomWord}>Next Word</button>

@@ -7,9 +7,15 @@
       color: darkgrey;
     }
   }
-
-  .exampleSentence {
+  .examplesHeading {
     margin-top: 5rem;
+    margin-bottom: 1rem;
+  }
+  .examples {
+    list-style-type: none;
+    .exampleSentence {
+      padding: 0.5rem 0rem;
+    }
   }
 
   .nextWorkButton {
