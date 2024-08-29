@@ -20,7 +20,7 @@ export function Question() {
       data[randomIndexes[2]],
       data[randomIndexes[3]],
     ]
-    setShowReverse(Boolean(Math.random()))
+    setShowReverse(Boolean(Math.round(Math.random())))
     setSelectedWord(wordList[0])
     setOptions(questionsUtils.shuffleArray(wordList));
     setSelectedAnswer(null);
