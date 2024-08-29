@@ -46,7 +46,7 @@ export function Question() {
       />
 
       {
-        // selectedAnswer &&
+        selectedAnswer &&
         <div >
           <h2 className={styles.examplesHeading}>Examples:</h2>
           <ul className={styles.examples}>
