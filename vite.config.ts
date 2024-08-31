@@ -1,7 +1,8 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   base: '/learn-telugu/',
@@ -44,6 +45,12 @@ export default defineConfig({
     coverage: {
       reportsDirectory: './coverage/learn-telugu',
       provider: 'v8',
+    },
+  },
+
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });
