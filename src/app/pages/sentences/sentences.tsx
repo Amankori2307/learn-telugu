@@ -1,4 +1,3 @@
-import Sentence from './sentence/sentence';
 import styles from './sentences.module.scss';
 
 export function Sentences() {
@@ -6,7 +5,10 @@ export function Sentences() {
   return (
     <div className={styles.sentences}>
       <h1>Sentences</h1>
-      {sentences.map((sentence) => <Sentence key={sentence} />)}
+
+      <ul className={styles.list}>
+        {sentences.map((sentence) => <li key={sentence} ><a href={`/admin/sentences/${sentence}`}>Sentence {sentence}</a></li>)}
+      </ul>
     </div>
   );
 }

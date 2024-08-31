@@ -1,4 +1,3 @@
-import Word from './word/word';
 import styles from './words.module.scss';
 
 export function Words() {
@@ -6,7 +5,9 @@ export function Words() {
   return (
     <div className={styles.words}>
       <h1>Words</h1>
-      {words.map((word) => <Word key={word} />)}
+      <ul className={styles.list}>
+        {words.map((word) => <li key={word}><a href={`/admin/words/${word}`}>Word {word}</a></li>)}
+      </ul>
     </div>
   );
 }

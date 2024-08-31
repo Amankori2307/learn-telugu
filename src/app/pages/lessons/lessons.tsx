@@ -1,4 +1,3 @@
-import Lesson from './lesson/lesson';
 import styles from './lessons.module.scss';
 
 export function Lessons() {
@@ -6,7 +5,9 @@ export function Lessons() {
   return (
     <div className={styles.lessons}>
       <h1>Lessons</h1>
-      {lessons.map((lesson) => <Lesson key={lesson} />)}
+      <ul className={styles.list}>
+        {lessons.map((lesson) => <li key={lesson}><a href={`/admin/lessons/${lesson}`}>Lesson {lesson}</a></li>)}
+      </ul>
     </div>
   );
 }

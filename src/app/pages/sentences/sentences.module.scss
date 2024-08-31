@@ -1,7 +1,8 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.list {
+  margin-top: 4rem;
+  list-style-type: none;
+  li {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+}
