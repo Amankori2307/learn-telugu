@@ -1,9 +1,12 @@
+import Lesson from './lesson/lesson';
 import styles from './lessons.module.scss';
 
 export function Lessons() {
+  const lessons = [1, 2, 3, 4, 5, 6];
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Lessons!</h1>
+    <div className={styles.lessons}>
+      <h1>Lessons</h1>
+      {lessons.map((lesson) => <Lesson key={lesson} />)}
     </div>
   );
 }
