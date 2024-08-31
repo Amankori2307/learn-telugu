@@ -5,7 +5,7 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/learn-telugu/',
+  // base: '/learn-telugu/',
   root: __dirname,
   cacheDir: './node_modules/.vite/learn-telugu',
 
@@ -50,7 +50,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });
